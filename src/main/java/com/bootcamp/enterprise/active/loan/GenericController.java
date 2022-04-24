@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("api")
 @Tag(name = "CI/CD API Test", description = "CI/CD Test with Github Actions")
-@CrossOrigin( value = { "*" })
+@CrossOrigin( origins = {"*"})
 @RequiredArgsConstructor
 public class GenericController {
 
@@ -20,7 +20,7 @@ public class GenericController {
         return Mono.just(
                 ResponseEntity.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(Flux.just("Hola, Generic Controller"))
+                        .body(Flux.just("Hola, Generic Controller v2 with Cors *"))
         );
     }
 
