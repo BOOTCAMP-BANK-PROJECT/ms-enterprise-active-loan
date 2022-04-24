@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class GenericController {
 
-    @GetMapping(value = "/test")
+    @GetMapping//(value = "/test")
     public Mono<ResponseEntity<Flux<String>>> getAll() {
         return Mono.just(
                 ResponseEntity.ok()
