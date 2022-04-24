@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("enterprise/active/loan/test")
 @Tag(name = "CI/CD API Test", description = "CI/CD Test with Github Actions")
 @CrossOrigin( origins = {"*"})
 @RequiredArgsConstructor
