@@ -4,20 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 
 import java.util.logging.Logger;
 
+@EnableEurekaClient
 @SpringBootApplication
 public class LoanApplication implements CommandLineRunner {
 
 	private static final Logger logger = Logger.getLogger(LoanApplication.class.toString());
+	
+	@Autowired
+	private ReactiveMongoTemplate mongoTemplate;
 
 	@Autowired
 	private Environment env;
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		mongoTemplate.dropCollection("enterpriseactiveloan").subscribe();
 
 		//logger.log(Level.INFO, env.getProperty("spring.application.name"));
 		logger.info("Java version: " + env.getProperty("java.version"));
@@ -28,6 +36,7 @@ public class LoanApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LoanApplication.class, args);
+	
 	}
 
 }
