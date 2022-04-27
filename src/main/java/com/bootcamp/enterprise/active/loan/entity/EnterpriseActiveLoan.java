@@ -14,7 +14,7 @@ public class EnterpriseActiveLoan {
 	
 	@Id
 	private String id;
-    private Enterprise documentRUC;
+    private EnterpriseClient documentRUC;
     private String creditDate;
     private String loanAmount;
     private String loanTermInMonths;
